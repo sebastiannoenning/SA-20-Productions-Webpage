@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("fonts/testimonia-font");
+@import url("https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-grey: #cacac8ff;
+    --clr-white: #f4ede5ff;
+    --clr-owhite: #fdf4e3ff;
+    --clr-lgrey: #ede4d5ff;
+    --clr-lgborder: #e5dccbff;
+    --clr-lbrown: #aa8453ff;
+    --clr-brown: #765d35ff;
+    --clr-green: #606142ff;
+    --clr-turq: #222e2fff;
+}
+
+html {
+    font-size: 10px;
+}
+
+a {
+    text-decoration: none;
+    align-items: center;
+    color: black;
+    text-transform: capitalize;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    scroll-behavior: smooth;
+    font-weight: 300;
+    font-style: normal;
+    font-optical-sizing: auto;
+    display: flex;
+}
+
+body {
+    margin: 1em;
+    background-color: var(--clr-brown);
+    color: white;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.description {
+    font-size: clamp(2.25rem, 3vw, 3rem);
+    font-family: "Arsenal", sans-serif;
+    font-weight: normal;
+}
+
+.calligraphy {
+    font-size: clamp(4.25rem, 6vw, 6rem);
+    font-family: "Testimonia", sans-serif;
+}
+
+.primary-image {
+    object-fit: cover;
+    border-width: 5px;
+    border-color: var(--clr-lbrown);
+}
