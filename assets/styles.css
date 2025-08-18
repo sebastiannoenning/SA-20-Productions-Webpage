@@ -422,7 +422,6 @@ body {
 
         background: var(--clr-white);
 
-
         position: relative;
     }
 
@@ -443,7 +442,7 @@ body {
         width: 101%;
         z-index: -1;
 
-        background: conic-gradient(from var(--angle), transparent 50%, var(--clr-turq-dark));
+        background: conic-gradient(from var(--angle), transparent 75%, var(--clr-turq-dark));
 
         padding: 20px;
 
