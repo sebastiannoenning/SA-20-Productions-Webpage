@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("fonts/testimonia-font");
-@import url("https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("fonts/Testimonia");
+@import url("fonts/Cormorant_Garamond");
+@import url("fonts/Arsenal");
+@import url("fonts/Montserrat");
+@import url("fonts/Belleza");
 
 * {
     margin: 0;
@@ -15,13 +17,17 @@
 :root {
     --clr-grey: #cacac8ff;
     --clr-white: #f4ede5ff;
-    --clr-owhite: #fdf4e3ff;
+    --clr-owhite: #ece4d3ff;
     --clr-lgrey: #ede4d5ff;
-    --clr-lgborder: #e5dccbff;
+    --clr-lgborder: #dbd1d0ff;
     --clr-lbrown: #aa8453ff;
     --clr-brown: #765d35ff;
     --clr-green: #606142ff;
-    --clr-turq: #222e2fff;
+    --clr-turq-light: #445b5eff;
+    --clr-turq-dark: #222e2fff;
+    --clr-turq-shadow: #343d3fff;
+
+    --font-default: 3.5rem;
 }
 
 html {
@@ -30,9 +36,6 @@ html {
 
 a {
     text-decoration: none;
-    align-items: center;
-    color: black;
-    text-transform: capitalize;
 }
 
 img {
@@ -40,38 +43,648 @@ img {
 }
 
 header {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+}
+
+body {
+    margin: 1em;
+    background-color: var(--clr-white);
+    color: white;
+}
+
+.nav {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     scroll-behavior: smooth;
     font-weight: 300;
     font-style: normal;
     font-optical-sizing: auto;
-    display: flex;
 }
 
-body {
-    margin: 1em;
-    background-color: var(--clr-brown);
-    color: white;
-}
-
-.title {
-    font-size: 30px;
-}
-
-.description {
-    font-size: clamp(2.25rem, 3vw, 3rem);
-    font-family: "Arsenal", sans-serif;
-    font-weight: normal;
-}
-
-.calligraphy {
-    font-size: clamp(4.25rem, 6vw, 6rem);
-    font-family: "Testimonia", sans-serif;
+.nav__link {
+    align-items: center;
+    color: black;
+    text-transform: capitalize;
 }
 
 .primary-image {
     object-fit: cover;
     border-width: 5px;
     border-color: var(--clr-lbrown);
+}
+
+.home-blurb-title__head {
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.home-blurb-title__subtext {
+    text-transform: lowercase;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 50;
+}
+
+.home-blurb-descr__reg {
+    white-space: nowrap;
+    text-transform: lowercase;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 50;
+}
+
+.home-blurb-descr__calligraphy {
+    text-transform: lowercase;
+    font-family: "Testimonia", sans-serif;
+    font-weight: 100;
+}
+
+@media (max-width: 830px) {
+    body {
+        margin: 0;
+    }
+
+    .main-grid {
+        display: grid;
+        grid-template-columns:
+                1em
+                1fr
+                1em;
+        gap: 2em;
+        position: relative;
+    }
+
+    header {
+        grid-column: 2 / -1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto auto;
+        gap: 1em;
+    }
+
+    .logo {
+        grid-column: 1;
+        grid-row: 1;
+
+        align-items: center;
+        justify-items: center;
+    }
+
+    .nav {
+        grid-column: 1;
+        grid-row: 2;
+
+        justify-items: center;
+    }
+
+    main {
+        display: grid;
+        grid-column: 2 / 5;
+        grid-template-columns: subgrid;
+        grid-auto-rows: auto auto 1em;
+        grid-auto-flow: dense;
+    }
+
+    .home-blurb {
+        display: grid;
+        grid-template-columns: min-content min-content;
+        grid-template-rows: auto auto auto;
+        align-items: normal;
+        column-gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-blurb-title__head {
+        grid-row: 1;
+        grid-column: 1;
+        font-size: calc(clamp(2.25rem, 2.5vw, 3.5rem) / 0.9);
+    }
+
+    .home-blurb-title__subtext {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: calc(clamp(2.25rem, 2.5vw, 3.5rem) / 1.8);
+        text-transform: lowercase;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 50;
+    }
+
+    .home-blurb-descr__reg {
+        grid-column: 1 / -1;
+        column-span: all;
+        grid-row: 2;
+        font-size: calc(clamp(2.25rem, 2.5vw, 3.5rem) / 0.9);
+    }
+
+    .home-blurb-descr__calligraphy {
+        grid-column: 1 / -1;
+        column-span: all;
+        grid-row: 3;
+        font-size: calc(clamp(2.25rem, 2.5vw, 3.5rem) / 0.4);
+    }
+}
+
+
+@media (min-width: 830px) {
+    body {
+        margin: 0;
+    }
+
+    .main-grid {
+        display: grid;
+        grid-template-columns:
+                minmax(1em, 1fr)
+                repeat(2, minmax(15rem, 35rem))
+                minmax(5rem, 10rem)
+                minmax(1em, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 2em;
+        position: relative;
+    }
+
+    .home-background{
+        grid-row: 1 / 2;
+
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .col__reg {
+        grid-column: 1 / -1;
+        grid-row: 1 / 3;
+    }
+
+    .col__inv {
+        grid-column: 3 / -1;
+        grid-row: 1 / 3;
+    }
+
+    .col__reg::before,
+    .col__inv::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("images/geographic-brown.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+
+    .col__inv::before {
+        background-image: url("images/geographic-cream.svg");
+    }
+
+    header {
+        grid-column: 1 / -1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+    }
+
+    .logo {
+        grid-column: 1 / 3;
+        grid-row: 1;
+
+        max-width: 100%;
+
+        font-family: 'Arsenal', sans-serif;
+        font-weight: bold;
+        font-size: calc(3.5rem / 1.3);
+        color: white;
+
+        border: 1px white solid;
+        padding: 13px 24px;
+
+        justify-self: right;
+    }
+
+    .nav {
+        padding-left: 2rem;
+        grid-column: 3 / 5;
+
+        -webkit-text-stroke: 0.5rem var(--clr-owhite);
+        paint-order: stroke fill;
+        color: black;
+        text-shadow: 0 0 0.8rem var(--clr-owhite);
+    }
+
+    main {
+        grid-column: 2 / 5;
+        grid-row: 2 / -1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+        grid-auto-flow: dense;
+
+        row-gap: 5rem;
+    }
+
+    section#home {
+        grid-row: 1;
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto 12rem 10%;
+        align-items: center;
+        justify-items: left;
+    }
+
+    .home-blurb {
+        grid-column: 1 / -1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: min-content min-content;
+        grid-template-rows: min-content min-content min-content;
+        align-items: normal;
+        column-gap: 0.5rem;
+        margin-bottom: 1rem;
+
+        color: white;
+    }
+
+    .home-blurb-title__head {
+        grid-row: 1;
+        grid-column: 1;
+
+        font-size: calc(3.5rem / 0.9); /*calc(clamp(2.25rem, 2.5vw, 3.5rem) / 0.9);*/
+    }
+
+    .home-blurb-title__subtext {
+        grid-column: 2;
+        grid-row: 1;
+
+        font-size: calc(3.5rem / 2); /*calc(clamp(2.25rem, 2.5vw, 3.5rem) / 1.8)*/;
+        text-transform: lowercase;
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 50;
+    }
+
+    .home-blurb-descr__reg {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        column-span: all;
+
+        font-family: 'Arsenal', sans-serif;
+        font-size: calc(3.5rem / 0.9); /*calc(clamp(2.25rem, 2.5vw, 3.5rem) / 0.9);*/
+    }
+
+    .home-blurb-descr__calligraphy {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        column-span: all;
+
+        font-size: calc(3.5rem / 0.4); /*calc(clamp(2.25rem, 2.5vw, 3.5rem) / 0.4);*/
+    }
+
+    .home-image {
+        grid-column: 2 / 3;
+        grid-row: 1 / -1;
+        z-index: -1;
+
+        transform: scale(110%) translate(-5%, 5%);
+
+        border: 5px solid var(--clr-lbrown);
+        filter: drop-shadow(0rem 0rem 13px #000000);
+    }
+
+    .home-contact {
+        grid-row: 2;
+        grid-column: 2 / -1;
+        z-index: 1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: auto auto;
+
+        justify-items: end;
+        padding-right: 5rem;
+    }
+
+    .home-contact__email {
+        grid-row: 2;
+        grid-column: 1 / -1;
+
+        font-family: 'Arsenal' , sans-serif;
+        font-weight: bold;
+        font-size: calc(3.5rem / 1.688);
+
+        padding: 1px 4px 4px 4px;
+        border: 5px solid var(--clr-owhite);
+    }
+
+    .home-contact__subtext {
+        grid-row: 1;
+        grid-column: 1 / -1;
+
+        font-family: "Montserrat", sans-serif;
+        font-weight: 200;
+        font-size: calc(3.5rem / 0.6);
+        font-style: italic;
+        text-transform: lowercase;
+
+        padding-bottom: 0.5rem;
+    }
+
+    section#about {
+        padding-top: 5rem;
+        grid-row: 3;
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+
+        row-gap: 3rem;
+    }
+
+    .about-blurb {
+        grid-column: 1 / -1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: 20rem auto;
+        grid-template-rows: auto auto;
+
+        margin: 0 auto;
+        padding: 1rem;
+
+        background: var(--clr-white);
+
+
+        position: relative;
+    }
+
+    @property --angle {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    .about-blurb::after, .about-blurb::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+        height: 102.5%;
+        width: 101%;
+        z-index: -1;
+
+        background: conic-gradient(from var(--angle), transparent 75%, var(--clr-turq-dark));
+
+        padding: 20px;
+
+        animation: 3s spin linear infinite;
+    }
+
+    .about-blurb::before {
+        filter: blur(1.5rem);
+    }
+    
+    @keyframes spin {
+        from{
+            --angle: 0deg;
+        }
+        to {
+            --angle: 360deg;
+        }
+    }
+
+    .about-blurb-images {
+        grid-column: 1;
+        grid-row: 1 / -1;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .about-blurb-image__top {
+        grid-row: 1;
+        grid-column: 1 / -1;
+    }
+
+    .about-blurb-image__right {
+        grid-row: 2;
+        grid-column: 2;
+    }
+
+    .about-blurb-text {
+        grid-column: 2 / -1;
+        grid-row: 1 / -1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+    }
+
+    .about-blurb-title {
+        grid-row: 1;
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-rows: auto min-content min-content;
+        justify-items: center
+    }
+
+    .about-blurb-title__sub {
+        grid-row: 2;
+
+        font-family: "Testimonia", sans-serif;
+        font-weight: 100;
+        font-size: calc(3.5rem / 0.7);
+        text-align: center;
+        color: var(--clr-turq-dark)
+    }
+
+    .about-blurb-title__head {
+        grid-row: 3;
+
+        text-transform: uppercase;
+        font-family: "Arsenal", sans-serif;
+        font-weight: bold;
+        font-size: calc(3.5rem / 0.7);
+        color: var(--clr-turq-dark);
+    }
+
+    .about-blurb-title__head::after {
+        display:block;
+        width:100%;
+        height: 0.15rem;
+
+        background: var(--clr-turq-dark);
+        content:'';
+        margin-top:.25rem;
+        margin-bottom:.5rem;
+    }
+
+    .about-blurb-desc {
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        padding: 0 1rem;
+
+        font-family: "Arsenal", sans-serif;
+        font-weight: normal;
+        font-size: calc(3.5rem / 2.3);
+        text-align: center;
+        color: var(--clr-turq-dark);
+    }
+
+    .about-jacki {
+        grid-column: 1;
+        grid-row: 2;
+
+        padding-top: 2rem;
+
+        background-color: var(--clr-owhite);
+        display: grid;
+        grid-template-rows: min-content min-content 10rem;
+        justify-items: center;
+    }
+
+    .about-jacki-title {
+        grid-column: 1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: min-content min-content;
+    }
+
+    .about-jacki-title__sub {
+        grid-row: 1;
+
+        font-family: "Testimonia", sans-serif;
+        font-weight: 100;
+        font-size: calc(3.5rem / 0.7);
+        text-align: center;
+        color: var(--clr-turq-dark)
+    }
+
+    .about-jacki-title__head {
+        grid-row: 2;
+        text-align: center;
+
+        text-transform: uppercase;
+        font-family: "Arsenal", sans-serif;
+        font-weight: bold;
+        font-size: calc(3.5rem / 0.7);
+        color: var(--clr-turq-dark);
+    }
+
+    .about-jacki-title__head::after {
+        display:block;
+        width:100%;
+        height: 0.15rem;
+
+        background: var(--clr-turq-dark);
+        content:'';
+        margin-top:.25rem;
+        margin-bottom:.5rem;
+    }
+
+    .about-jacki-description {
+        grid-column: 1;
+        grid-row: 2;
+
+        padding-right: 1rem;
+        font-family: "Arsenal", sans-serif;
+        font-weight: normal;
+        font-size: calc(3.5rem / 2.3);
+        text-align: justify;
+        color: var(--clr-turq-dark);
+    }
+
+    .about-jacki-image {
+        grid-column: 1;
+        grid-row: 3;
+
+        height: 10rem;
+    }
+
+    .about-liz {
+        grid-column: 2;
+        grid-row: 2;
+
+        padding-top: 2rem;
+
+        background-color: var(--clr-grey);
+        display: grid;
+        grid-template-rows: min-content min-content 10rem;
+        justify-items: center;
+    }
+
+    .about-liz-title {
+        grid-column: 1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: min-content min-content;
+    }
+
+    .about-liz-title__sub {
+        grid-row: 1;
+
+        font-family: "Testimonia", sans-serif;
+        font-weight: 100;
+        font-size: calc(3.5rem / 0.7);
+        text-align: center;
+        color: var(--clr-turq-dark)
+    }
+
+    .about-liz-title__head {
+        grid-row: 2;
+        text-align: center;
+
+        text-transform: uppercase;
+        font-family: "Arsenal", sans-serif;
+        font-weight: bold;
+        font-size: calc(3.5rem / 0.7);
+        color: var(--clr-turq-dark);
+    }
+
+    .about-liz-title__head::after {
+        display:block;
+        width:100%;
+        height: 0.15rem;
+
+        background: var(--clr-turq-dark);
+        content:'';
+        margin-top:.25rem;
+        margin-bottom:.5rem;
+    }
+
+    .about-liz-description {
+        grid-column: 1;
+        grid-row: 2;
+
+        padding-left: 1rem;
+        font-family: "Arsenal", sans-serif;
+        font-weight: normal;
+        font-size: calc(3.5rem / 2.3);
+        text-align: justify;
+        color: var(--clr-turq-dark);
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        grid-row: 3;
+    }
 }
