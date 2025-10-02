@@ -327,7 +327,7 @@ body {
         font-size: calc(3.5rem / 2); /*calc(clamp(2.25rem, 2.5vw, 3.5rem) / 1.8)*/;
         text-transform: lowercase;
         font-family: 'Cormorant Garamond', serif;
-        font-weight: 50;
+        font-weight: 250;
     }
 
     .home-blurb-descr__reg {
@@ -696,6 +696,11 @@ body {
         display:block;
         width:100%;
         height: 0.15rem;
+
+        background: var(--clr-turq-dark);
+        content:'';
+        margin-top:.25rem;
+        margin-bottom:.5rem;
     }
 
     .projects-title__sub {
@@ -706,5 +711,71 @@ body {
         font-size: calc(3.5rem / 0.7);
         text-align: center;
         color: var(--clr-turq-dark)
+    }
+
+    .projects-list {
+        grid-row: 2;
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-rows: auto;
+        grid-gap: 2rem;
+    }
+
+    .projects-yunus {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .project-item {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+    }
+
+    .project-title, .project-desc {
+        padding-right: 1rem;
+    }
+
+    .projects-yunus-title  {
+        grid-row: 1;
+        grid-column: 1;
+
+        text-transform: uppercase;
+        font-family: "Arsenal", sans-serif;
+        font-weight: bold;
+        font-size: calc(3.5rem / 0.7);
+        text-align: right;
+        color: var(--clr-turq-dark);
+    }
+
+    .projects-yunus-title::after {
+        display:block;
+        width:100%;
+        height: 0.15rem;
+
+        background: var(--clr-turq-dark);
+        content:'';
+        margin-top:.25rem;
+        margin-bottom:.5rem;
+    }
+
+    .projects-yunus-description {
+        grid-row: 2;
+        grid-column: 1;
+
+        font-family: "Arsenal", sans-serif;
+        font-weight: normal;
+        font-size: calc(3.5rem / 1.5);
+        text-align: right;
+        color: var(--clr-turq-dark);
+    }
+
+    .projects-yunus-image {
+        grid-row: 1 / -1;
+        grid-column: 2;
+
+        height: 19rem;
+        border: 5px solid var(--clr-turq-dark);
     }
 }
