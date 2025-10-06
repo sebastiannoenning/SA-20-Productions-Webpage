@@ -24,6 +24,7 @@
     --clr-lbrown: #aa8453ff;
     --clr-brown: #765d35ff;
     --clr-green: #606142ff;
+    --clr-turq-lightest: #195e65ff;
     --clr-turq-light: #445b5eff;
     --clr-turq-dark: #222e2fff;
     --clr-turq-shadow: #343d3fff;
@@ -363,14 +364,14 @@ body {
 
     .home-contact {
         grid-row: 2;
-        grid-column: 2 / -1;
+        grid-column: 1 / 2;
         z-index: 1;
 
         display: grid;
         grid-template-columns: subgrid;
         grid-template-rows: auto auto;
 
-        justify-items: end;
+        justify-items: left;
         padding-right: 5rem;
     }
 
@@ -391,10 +392,9 @@ body {
         grid-column: 1 / -1;
 
         font-family: "Montserrat", sans-serif;
-        font-weight: 200;
-        font-size: calc(3.5rem / 0.6);
+        font-weight: 400;
+        font-size: calc(3.5rem / 0.75);
         font-style: italic;
-        text-transform: lowercase;
 
         padding-bottom: 0.5rem;
     }
@@ -444,11 +444,16 @@ body {
         width: 101.25%;
         z-index: -1;
 
-        background: conic-gradient(from var(--angle), transparent 75%, var(--clr-turq-dark));
+        background: conic-gradient(from var(--angle),
+        var(--clr-turq-lightest),
+        var(--clr-turq-dark),
+        var(--clr-turq-lightest),
+        var(--clr-turq-dark),
+        var(--clr-turq-lightest));
 
         padding: 20px;
 
-        animation: 3s spin linear infinite;
+        animation: 9s spin linear infinite;
     }
 
     .about-blurb::before {
@@ -645,13 +650,23 @@ body {
         padding-left: 1rem;
     }
 
-    .about-jacki-image,
-    .about-liz-image {
+    .about-jacki-image, .about-jacki-image__background,
+    .about-liz-image, .about-liz-image__background {
         grid-column: 1;
         grid-row: 2;
 
+        position: relative;
         justify-self: center;
+        align-self: center;
         height: 17.5rem;
+
+        z-index: 1;
+    }
+
+    .about-jacki-image,
+    .about-liz-image {
+        height: 14rem;
+        z-index: 2;
     }
 
     .about-jacki-title__head::after,
